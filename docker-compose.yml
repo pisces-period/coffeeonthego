@@ -1,0 +1,33 @@
+# https://vsupalov.com/docker-arg-env-variable-guide/
+# environment variables set in docker-compose.yml files are consumed by the
+# container spawn by 'docker-compose up' - they are not set in base images
+
+version: '3'
+
+services:
+
+    mongo-on-the-go:
+        # mongo service does not rely on custom built image
+        image: mongo:3.4.23-xenial
+        container_name: mongo-on-the-go
+        restart: always
+        # DB credentials env override
+        environment:
+          - MONGO_INITDB_ROOT_USERNAME=mongo
+          - MONGO_INITDB_ROOT_PASSWORD=mongo
+
+    coffee-on-the-go:
+        # custom image name:tag
+        image: coffeeonthego:v1.0
+        # custom built Dockerfile
+        build: ./
+        container_name: coffee-on-the-go
+        restart: always
+        environment:
+          - DB_USER=mongo
+          - DB_PASS=mongo
+          - DB_CONTAINER=mongo-on-the-go
+        ports:
+            - "8080:80"
+        depends_on:
+            - mongo-on-the-go

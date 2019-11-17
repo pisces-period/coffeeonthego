@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+    <html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <title>Coffee-on-the-go</title>
+    </head>
+    <body>
+        <h1><b>My Coffee</b></h1>
+        {{/* if coffee is ready */}}
+        {{ if eq .PreparationState "ready" }}
+            {{ template "coffeeready" . }}
+        {{/* if coffee is not ready */}}    
+        {{ else }}
+            {{ template "coffeepreparing" . }}
+        {{ end }}
+    </body>
+</html>

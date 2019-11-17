@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+    <html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <title>Coffee-on-the-go</title>
+    </head>
+    <body>
+        <h1><b>My Coffee</b></h1>
+        <img src="/assets/gopher_list.png" alt="gopher" height="120" width="120">
+        <p>Coffee capsules currently on the Coffee-Machine queue:</p>
+        {{ range . }}
+        <ul>
+            <li> {{ .ID }} </li>
+        {{ end }}
+        </ul>
+    </body>
+</html>

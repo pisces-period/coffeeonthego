@@ -1,0 +1,9 @@
+{{ define "coffeepreparing"}}
+    <img src="/assets/gopher_coffee.png" alt="gopher" height="120" width="120">
+    <p>Your coffee is being prepared!</p>
+    <p>Don't forget to send a BREW request with coffee-message 'stop' to get your coffee!</p>
+    <p><b>ID:</b> {{ .ID}}</p>
+    <p><b>Flavor:</b> {{ .Flavor}} </p>
+    <p><b>Preparation State:</b> {{ .PreparationState}} </p>
+    <p>Thank you for your patience!</p>
+{{ end }}

@@ -97,14 +97,15 @@ To get meta-data for a particular coffee capsule, all you need to do is send a G
 
 Below you can find an example of a valid GET request (needless to say, the _"id"_ parameter is required):
 
+```
 curl http://localhost:8080/coffee/get?id={$bson_id}
-
+```
 Conversely, if you do not provide any id, the coffee-machine returns a list of all coffee capsules which have been requested.
 
 Below you can find an example of such transaction:
-
+```
 curl http://localhost:8080/coffee/get
-
+```
 For a better user experience, use your web browser instead of CURL. Fresh go templates are served with your coffee.
 
 ### TEAPOTS ###
@@ -116,9 +117,9 @@ The _/coffee/_ route is the only safe way to brew and get coffee.
 Any attempt to use a _/teapot/_ route results in http status code 418.
 
 Below you can find an example of an unadverted attempt to use teapots to brew coffee:
-
+```
 curl http://localhost:8080/teapot/
-
+```
 Again, for a better experience, use your web browser instead of CURL.
 
 ### INTERACTING WITH THE MONGO-DATABASE
